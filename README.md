@@ -18,7 +18,7 @@ This repo contains **small, medium, and large-scale projects**, helping develope
 ### 📌 Small-Scale Projects  
 1️⃣ [To-Do List App](./01-to-do-list-app)  
 2️⃣ [Calculator](./02-calculator)  
-3️⃣ [Tip Calculator](./03-tip-calculator)  
+3️⃣ [Qr code Generator](./03-qr-code-generator)  
 ... *(See full list below!)*  
 
 <details>
