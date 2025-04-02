@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+    /* Light Mode Colors */
+    --primary-bg: linear-gradient(to right, #e3a1a1, #b0c4c4, #4fc2dd, #a897d6, #70c0d3);
+    --app-bg: #ffffff;
+    --text-color: #002655;
+    --input-bg: #dfe2e5;
+    --add-btn: #ff4d3a;
+    --delete-all-btn: linear-gradient(to right, #ff5e6f, #b2e4ff, #ff5e6f);
+    --list-item-bg: #ffffff;
+    --checked-item: #666;
+
+    /* Dark Mode Colors */
+    --dark-primary-bg: linear-gradient(to right, #101d26, #1c3544, #284c5e);
+    --dark-app-bg: #1c1c1c;
+    --dark-text-color: #f5f5f5;
+    --dark-input-bg: #333;
+    --dark-add-btn: #e65a5a;
+    --dark-delete-all-btn: linear-gradient(to right, #ff3b5c, #ff4825);
+    --dark-list-item-bg: #333;
+    --dark-checked-item: #bbb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    --primary-bg: var(--dark-primary-bg);
+    --app-bg: var(--dark-app-bg);
+    --text-color: var(--dark-text-color);
+    --input-bg: var(--dark-input-bg);
+    --add-btn: var(--dark-add-btn);
+    --delete-all-btn: var(--dark-delete-all-btn);
+    --list-item-bg: var(--dark-list-item-bg);
+    --checked-item: var(--dark-checked-item);
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--primary-bg);
+    padding: 10px;
+}
