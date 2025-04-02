@@ -1,219 +1,235 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 :root {
-    /* Light Mode Colors */
-    --primary-bg: linear-gradient(to right, #e3a1a1, #b0c4c4, #4fc2dd, #a897d6, #70c0d3);
-    --app-bg: #ffffff;
-    --text-color: #002655;
-    --input-bg: #dfe2e5;
-    --add-btn: #ff4d3a;
-    --delete-all-btn: linear-gradient(to right, #ff5e6f, #b2e4ff, #ff5e6f);
-    --list-item-bg: #ffffff;
-    --checked-item: #666;
+  /* Light Mode Colors */
+  --primary-bg: linear-gradient(
+    to right,
+    #e3a1a1,
+    #b0c4c4,
+    #4fc2dd,
+    #a897d6,
+    #70c0d3
+  );
+  --app-bg: #ffffff;
+  --text-color: #002655;
+  --input-bg: #dfe2e5;
+  --add-btn: #ff4d3a;
+  --delete-all-btn: linear-gradient(to right, #ff5e6f, #b2e4ff, #ff5e6f);
+  --list-item-bg: #ffffff;
+  --checked-item: #666;
 
-    /* Dark Mode Colors */
-    --dark-primary-bg: linear-gradient(to right, #101d26, #1c3544, #284c5e);
-    --dark-app-bg: #1c1c1c;
-    --dark-text-color: #f5f5f5;
-    --dark-input-bg: #333;
-    --dark-add-btn: #e65a5a;
-    --dark-delete-all-btn: linear-gradient(to right, #ff3b5c, #ff4825);
-    --dark-list-item-bg: #333;
-    --dark-checked-item: #bbb;
+  /* Dark Mode Colors */
+  --dark-primary-bg: linear-gradient(to right, #101d26, #1c3544, #284c5e);
+  --dark-app-bg: #1c1c1c;
+  --dark-text-color: #f5f5f5;
+  --dark-input-bg: #333;
+  --dark-add-btn: #e65a5a;
+  --dark-delete-all-btn: linear-gradient(to right, #ff3b5c, #ff4825);
+  --dark-list-item-bg: #333;
+  --dark-checked-item: #bbb;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    transition: background 0.3s, color 0.3s;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+body {
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
 body.dark-mode {
-    --primary-bg: var(--dark-primary-bg);
-    --app-bg: var(--dark-app-bg);
-    --text-color: var(--dark-text-color);
-    --input-bg: var(--dark-input-bg);
-    --add-btn: var(--dark-add-btn);
-    --delete-all-btn: var(--dark-delete-all-btn);
-    --list-item-bg: var(--dark-list-item-bg);
-    --checked-item: var(--dark-checked-item);
+  --primary-bg: var(--dark-primary-bg);
+  --app-bg: var(--dark-app-bg);
+  --text-color: var(--dark-text-color);
+  --input-bg: var(--dark-input-bg);
+  --add-btn: var(--dark-add-btn);
+  --delete-all-btn: var(--dark-delete-all-btn);
+  --list-item-bg: var(--dark-list-item-bg);
+  --checked-item: var(--dark-checked-item);
 }
 
 .container {
-    width: 100%;
-    min-height: 100vh;
-    background: var(--primary-bg);
-    padding: 10px;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--primary-bg);
+  padding: 10px;
 }
 
 .todo-app {
-    width: 100%;
-    max-width: 540px;
-    background: var(--app-bg);
-    margin: 100px auto 20px;
-    padding: 40px 30px 70px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 540px;
+  background: var(--app-bg);
+  margin: 100px auto 20px;
+  padding: 40px 30px 70px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .todo-app h2 {
-    color: var(--text-color);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .todo-app h2 img.todo-icon {
-    width: 60px;
-    height: 60px;
-    margin-left: 10px;
+  width: 60px;
+  height: 60px;
+  margin-left: 10px;
 }
 
 .row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--input-bg);
-    border-radius: 30px;
-    padding-left: 20px;
-    margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--input-bg);
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-bottom: 25px;
 }
 
 input {
-    flex: 1;
-    outline: none;
-    border: none;
-    background: transparent;
-    padding: 10px;
-    font-size: 14px;
-    color: var(--text-color);
+  flex: 1;
+  outline: none;
+  border: none;
+  background: transparent;
+  padding: 10px;
+  font-size: 14px;
+  color: var(--text-color);
 }
 
 button {
-    border: none;
-    outline: none;
-    padding: 16px 50px;
-    background: var(--add-btn);
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 40px;
-    font-weight: 500;
+  border: none;
+  outline: none;
+  padding: 16px 50px;
+  background: var(--add-btn);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 40px;
+  font-weight: 500;
+}
+
+/* Disable button style */
+button:disabled {
+  background: gray;
+  cursor: not-allowed;
 }
 
 /* To-Do List Items */
 ul li {
-    list-style: none;
-    font-size: 17px;
-    padding: 12px 8px 12px 50px;
-    user-select: none;
-    cursor: pointer;
-    position: relative;
-    background: var(--list-item-bg);
-    margin-bottom: 8px;
-    color: var(--text-color);
-    border-radius: 8px;
+  list-style: none;
+  font-size: 17px;
+  padding: 12px 8px 12px 50px;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  background: var(--list-item-bg);
+  margin-bottom: 8px;
+  color: var(--text-color);
+  border-radius: 8px;
 }
 
 /* Checkbox icon before list items */
 ul li::before {
-    content: "";
-    position: absolute;
-    height: 28px;
-    width: 28px;
-    border-radius: 50%;
-    background-image: url(images/unchecked.png);
-    background-size: cover;
-    background-position: center;
-    top: 12px;
-    left: 8px;
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url(images/unchecked.png);
+  background-size: cover;
+  background-position: center;
+  top: 12px;
+  left: 8px;
 }
 
 /* Checked list item */
 ul li.checked {
-    color: var(--checked-item);
-    text-decoration: line-through;
+  color: var(--checked-item);
+  text-decoration: line-through;
 }
 
 /* Change checkbox image when checked */
 ul li.checked::before {
-    background-image: url(images/checked.png);
+  background-image: url(images/checked.png);
 }
 
 /* Delete icon */
 ul li .delete-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-    filter: var(--icon-filter);
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  filter: var(--icon-filter);
 }
 
 ul li .delete-icon:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* Delete All Button */
 .delete-all-btn {
-    background: var(--delete-all-btn);
-    margin: 20px auto 0;
-    padding: 15px 45px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    border-radius: 10px;
-    display: block;
-    border: none;
-    font-weight: 500;
-    cursor: pointer;
+  background: var(--delete-all-btn);
+  margin: 20px auto 0;
+  padding: 15px 45px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .delete-all-btn:hover {
-    background-position: right center;
+  background-position: right center;
 }
 
 /* Dark Mode Specific */
 body.dark-mode .delete-icon {
-    filter: invert(1);
+  filter: invert(1);
 }
 
 body.dark-mode ul li {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Theme Toggle Button - Top Left */
 .theme-toggle-container {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
 .theme-toggle {
-    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
-    transition: all 0.3s ease;
+  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .theme-toggle:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 body.dark-mode .theme-toggle {
-    background: linear-gradient(to right, #f5af19 0%, #f12711 100%);
-    color: #fff;
+  background: linear-gradient(to right, #f5af19 0%, #f12711 100%);
+  color: #fff;
 }

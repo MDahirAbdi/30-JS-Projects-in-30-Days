@@ -4,13 +4,14 @@ const deleteAllBtn = document.getElementById("delete-all");
 const themeToggle = document.getElementById("theme-toggle");
 const toggleIcon = themeToggle.querySelector(".toggle-icon");
 const toggleText = themeToggle.querySelector(".toggle-text");
+const addButton = document.getElementById("add-btn");
 
 // Initialize theme
 function initTheme() {
-  const isDark = localStorage.getItem("darkMode") === "true";
-  document.body.classList.toggle("dark-mode", isDark);
-  updateThemeButton(isDark);
-}
+    const isDark = localStorage.getItem("darkMode") === "true";
+    if (isDark) document.body.classList.add("dark-mode");
+    updateThemeButton(isDark);
+  }
 
 // Update theme button
 function updateThemeButton(isDark) {
@@ -24,6 +25,11 @@ themeToggle.addEventListener("click", () => {
   localStorage.setItem("darkMode", isDark);
   updateThemeButton(isDark);
 });
+
+// Disable Add button when input is empty
+inputBox.addEventListener("input", () => {
+    addButton.disabled = inputBox.value.trim() === "";
+  });
 
 // Add new task
 function addTask() {
@@ -43,10 +49,12 @@ function addTask() {
   li.appendChild(deleteIcon);
   listContainer.appendChild(li);
   inputBox.value = "";
+  addButton.disabled = true; // Disable button after adding task
 
   saveData();
   updateDeleteAllVisibility();
 }
+
 
 // Handle list interactions (check/uncheck and delete)
 listContainer.addEventListener("click", function (e) {
