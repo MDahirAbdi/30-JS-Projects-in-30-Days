@@ -47,3 +47,60 @@ body.dark-mode {
     background: var(--primary-bg);
     padding: 10px;
 }
+
+.todo-app {
+    width: 100%;
+    max-width: 540px;
+    background: var(--app-bg);
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.todo-app h2 {
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.todo-app h2 img.todo-icon {
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--input-bg);
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+  }
+  
+  input {
+    flex: 1;
+    outline: none;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 14px;
+    color: var(--text-color);
+  }
+  
+  button {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: var(--add-btn);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+    font-weight: 500;
+  }
+  
