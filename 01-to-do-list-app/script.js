@@ -1,6 +1,29 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 const deleteAllBtn = document.getElementById("delete-all");
+const themeToggle = document.getElementById("theme-toggle");
+const toggleIcon = themeToggle.querySelector(".toggle-icon");
+const toggleText = themeToggle.querySelector(".toggle-text");
+
+// Initialize theme
+function initTheme() {
+  const isDark = localStorage.getItem("darkMode") === "true";
+  document.body.classList.toggle("dark-mode", isDark);
+  updateThemeButton(isDark);
+}
+
+// Update theme button
+function updateThemeButton(isDark) {
+  toggleIcon.textContent = isDark ? "☀️" : "🌙";
+  toggleText.textContent = isDark ? "Light Mode" : "Dark Mode";
+}
+
+// Toggle theme
+themeToggle.addEventListener("click", () => {
+  const isDark = document.body.classList.toggle("dark-mode");
+  localStorage.setItem("darkMode", isDark);
+  updateThemeButton(isDark);
+});
 
 // Add new task
 function addTask() {
