@@ -47,7 +47,7 @@ This repo contains **small, medium, and large-scale projects**, helping develope
 2️⃣4️⃣ [Landing Page](./24-landing-page)  
 2️⃣5️⃣ [Portfolio Website](./25-portfolio-website)  
 2️⃣6️⃣ [Music Player](./26-music-player)  
-27️⃣ [Drawing App](./27-drawing-app)  
+2️⃣7️⃣ [Drawing App](./27-drawing-app)  
 2️⃣8️⃣ [Task Manager](./28-task-manager)  
 2️⃣9️⃣ [Flashcard App](./29-flashcard-app)  
 3️⃣0️⃣ [Recipe App](./30-recipe-app)  
