@@ -51,4 +51,32 @@ buttons.forEach((button) => {
       updateDisplay();
     }
   }
+
+  const handleKeyboardInput = (event) => {
+    const keyMap = {
+      Enter: "=",
+      Backspace: "DEL",
+      Escape: "AC",
+      "*": "*",
+      "+": "+",
+      "-": "-",
+      "/": "/",
+      "%": "%",
+      ".": ".",
+    };
+  
+    const key = event.key;
+  
+    if (keyMap[key]) {
+      event.preventDefault();
+      calculate(keyMap[key]);
+    } else if (!isNaN(parseInt(key))) {
+      event.preventDefault();
+      output += key;
+      updateDisplay();
+    }
+  };
+  
+  document.addEventListener("keydown", handleKeyboardInput);
+  
   
