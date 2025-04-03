@@ -14,3 +14,19 @@ function updateDisplay() {
     display.style.fontSize = "36px";
   }
 }
+
+// Button click event
+buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const btnValue = e.target.dataset.value;
+      if (btnValue === "=") {
+        calculate(btnValue);
+      } else if (btnValue === "AC" || btnValue === "DEL") {
+        calculate(btnValue);
+      } else {
+        output += btnValue;
+        updateDisplay();
+      }
+    });
+  });
+  
