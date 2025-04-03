@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #e0e3ed;
+  transition: background 0.3s ease;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  max-width: 360px;
+  width: 100%;
+  border-radius: 20px;
+  padding: 20px;
+  background: #3d3c3c;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.display-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background: #2d2d2d;
+  margin-bottom: 10px;
+}
+
+.history {
+  color: #888;
+  font-size: 14px;
+  height: 20px;
+  margin-bottom: 5px;
+  width: 100%;
+  text-align: right;
+}
+
+.input {
+  background: transparent;
+  height: 80px;
+  width: 100%;
+  outline: none;
+  border: none;
+  text-align: right;
+  color: #ffffff;
+  font-size: 36px;
+  cursor: default;
+  pointer-events: none;
+}
+
+.button {
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.button button {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 60px;
+  padding: 8px 15px;
+  background: linear-gradient(180deg, #282828, #202020);
+  color: #fff;
+  border: none;
+  box-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15),
+    inset 0 -8px 8px rgba(0, 0, 0, 0.25), 10px 20px 25px rgba(0, 0, 0, 0.4),
+    0 0 2px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.1s ease;
+}
+
+.button button:hover {
+  filter: brightness(1.2);
+}
+
+.button button:active {
+  transform: scale(0.95);
+  box-shadow: inset -4px 0 4px rgba(0, 0, 0, 0.15),
+    inset 0 -4px 4px rgba(0, 0, 0, 0.25), 5px 10px 12px rgba(0, 0, 0, 0.4);
+}
+
+.button button:focus {
+  outline: 2px solid #00eeff;
+  outline-offset: 2px;
+}
+
+.numbers {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.operator {
+  color: #00eeff;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+.equals {
+  background: linear-gradient(180deg, #00a6ff, #0066ff) !important;
+  color: white !important;
+}
+
+.ac,
+.del {
+  color: #ff6b6b !important;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@media (max-width: 400px) {
+  .container {
+    max-width: 320px;
+    padding: 15px;
+  }
+
+  .button button {
+    height: 55px;
+  }
+
+  .input {
+    font-size: 32px;
+  }
+}
