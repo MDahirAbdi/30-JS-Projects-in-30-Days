@@ -1,10 +1,40 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Calculator</h1>
+    <div class="container">
+        <div class="display-container">
+            <div class="history"></div>
+            <input type="text" id="calc-display" class="input" aria-label="calculator display" readonly>
+        </div>
+        <div class="button">
+            <button class="ac" data-value="AC" aria-label="all clear">AC</button>
+            <button class="del" data-value="DEL" aria-label="delete">DEL</button>
+            <button class="operator" data-value="%" aria-label="percentage">%</button>
+            <button class="operator" data-value="/" aria-label="divide">/</button>
+            <button data-value="7" class="numbers" aria-label="7">7</button>
+            <button data-value="8" class="numbers" aria-label="8">8</button>
+            <button data-value="9" class="numbers" aria-label="9">9</button>
+            <button class="operator" data-value="*" aria-label="multiply">*</button>
+            <button data-value="4" class="numbers" aria-label="4">4</button>
+            <button data-value="5" class="numbers" aria-label="5">5</button>
+            <button data-value="6" class="numbers" aria-label="6">6</button>
+            <button class="operator" data-value="-" aria-label="subtract">-</button>
+            <button data-value="1" class="numbers" aria-label="1">1</button>
+            <button data-value="2" class="numbers" aria-label="2">2</button>
+            <button data-value="3" class="numbers" aria-label="3">3</button>
+            <button class="operator" data-value="+" aria-label="add">+</button>
+            <button data-value="0" class="numbers" aria-label="0">0</button>
+            <button data-value="00" class="numbers" aria-label="00">00</button>
+            <button data-value="." class="numbers" aria-label="decimal point">.</button>
+            <button class="operator equals" data-value="=" aria-label="equals">=</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
