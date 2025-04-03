@@ -62,13 +62,13 @@ To get started with these projects, follow these steps:
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/your-repository.git
-    cd your-repository
+     git clone https://github.com/MDahirAbdi/30-JS-Projects-in-30-Days.git
+    cd 30-JS-Projects-in-30-Days
     ```
 
 2. **Navigate to a project directory**:
     ```bash
-    cd project-directory
+   cd 01-to-do-list-app
     ```
 
 3. **Open the project**:
