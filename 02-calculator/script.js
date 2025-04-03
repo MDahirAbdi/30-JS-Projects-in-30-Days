@@ -31,26 +31,30 @@ buttons.forEach((button) => {
   });
   
   function calculate(btnValue) {
-    if (btnValue === "=") {
-      try {
+    try {
+      if (btnValue === "=") {
         output = String(new Function(`return ${output.replace("%", "/100")}`)());
         updateDisplay();
-      } catch (error) {
-        output = "Error";
+      } else if (btnValue === "AC") {
+        output = "0";
         updateDisplay();
-        setTimeout(() => {
-          output = "0";
-          updateDisplay();
-        }, 1000);
+      } else if (btnValue === "DEL") {
+        output = output.slice(0, -1) || "0";
+        updateDisplay();
+      } else {
+        output += btnValue;
+        updateDisplay();
       }
-    } else if (btnValue === "AC") {
-      output = "0";
+    } catch (error) {
+      output = "Error";
       updateDisplay();
-    } else if (btnValue === "DEL") {
-      output = output.slice(0, -1) || "0";
-      updateDisplay();
+      setTimeout(() => {
+        output = "0";
+        updateDisplay();
+      }, 1000);
     }
   }
+  
 
   const handleKeyboardInput = (event) => {
     const keyMap = {
