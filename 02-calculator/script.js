@@ -30,3 +30,25 @@ buttons.forEach((button) => {
     });
   });
   
+  function calculate(btnValue) {
+    if (btnValue === "=") {
+      try {
+        output = String(new Function(`return ${output.replace("%", "/100")}`)());
+        updateDisplay();
+      } catch (error) {
+        output = "Error";
+        updateDisplay();
+        setTimeout(() => {
+          output = "0";
+          updateDisplay();
+        }, 1000);
+      }
+    } else if (btnValue === "AC") {
+      output = "0";
+      updateDisplay();
+    } else if (btnValue === "DEL") {
+      output = output.slice(0, -1) || "0";
+      updateDisplay();
+    }
+  }
+  
