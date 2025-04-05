@@ -40,6 +40,15 @@ function isValidInput(btnValue) {
   return true;
 }
 
+// Sanitize expression before evaluation
+function sanitizeExpression(expression) {
+  // Replace all `%` with `/100`
+  expression = expression.replace(/%/g, "/100");
+
+  // Remove any non-numeric, non-operator characters, non-parentheses characters
+  return expression.replace(/[^0-9+\-*/().]/g, "");
+}
+
 // Calculate result
 function calculate(btnValue) {
   try {
@@ -48,11 +57,11 @@ function calculate(btnValue) {
       history = output;
       historyDisplay.textContent = history + " =";
 
-      // Replace % with /100 before evaluation
-      const expression = output.replace("%", "/100");
+      // Sanitize the input expression
+      const sanitizedOutput = sanitizeExpression(output);
 
       // Use Function constructor instead of eval for better security
-      output = String(new Function(`return ${expression}`)());
+      output = String(new Function(`return ${sanitizedOutput}`)());
 
       // Round long decimal numbers
       if (output.includes(".") && output.split(".")[1].length > 4) {
