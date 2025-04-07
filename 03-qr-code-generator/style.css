@@ -104,3 +104,24 @@ body {
 .clear-btn:hover {
     background-color: #c82333;
 }
+
+/* QR Preview Section */
+.preview-section {
+    margin-top: 25px;
+  }
+
+#qrBox {
+width: 200px;
+border-radius: 8px;
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.5s ease-in-out;
+margin: 0 auto;
+}
+
+#qrBox img {
+width: 100%;
+padding: 10px;
+}
+
+
