@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
+:root {
+    --primary-color: #31473a;
+    --secondary-color: #edf4f2;
+    --accent-color: #28a745;
+    --danger-color: #dc3545;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,10 +15,14 @@
 }
 
 body {
-    background: #262a2f;
+    background: var(--primary-color);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
+.container {
+    background: #fff;
+    width: 
+}
