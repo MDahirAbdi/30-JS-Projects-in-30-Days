@@ -23,6 +23,40 @@ body {
 }
 
 .container {
-    background: #fff;
-    width: 
+    background: var(--secondary-color);
+    width: 500px;
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.container p {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.container input {
+    width: 100%;
+    height: 50px;
+    border: 2px solid var(--primary-color);
+    outline: none;
+    padding: 10px;
+    margin: 10px 0 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.container input:focus {
+    border-color: #000;
 }
