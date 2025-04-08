@@ -34,6 +34,7 @@ try {
     downloadBtn.style.display = "block";
     status.textContent = "QR code generated successfully!";
 } catch (error) {
+    showError("Failed to generate QR code. Please try again.");
     console.error("QR generation error:", error);
 } finally {
     generateBtn.disabled = false;
@@ -50,6 +51,17 @@ function clearInput() {
     status.textContent = "";
 }
 
+
+function showError(message) {
+    status.textContent = message;
+    status.classList.add("error");
+    qrText.classList.add("error");
+    setTimeout(() => {
+        status.classList.remove("error");
+        qrText.classList.remove("error");
+    }, 3000);
+}
+
 function downloadQR() {
     const link = document.createElement("a");
     link.href = qrCode.src;
@@ -59,19 +71,16 @@ function downloadQR() {
     document.body.removeChild(link);
 }
 
-function showError(message) {
-    status.textContent = message;
-    status.classList.add("error");
-    qrText.classList.add("error");
-    setTimeout(() => {
-        status.textContent = "";
-        qrText.classList.remove("error");
-    }, 3000);
-}
+
 
   // Event listeners
   generateBtn.addEventListener("click", generateQR);
   clearBtn.addEventListener("click", clearInput);
   downloadBtn.addEventListener("click", downloadQR);
+  qrText.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") generateQR();
+  });
+
+  qrText.focus();
 
 });
