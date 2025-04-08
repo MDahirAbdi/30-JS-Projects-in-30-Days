@@ -125,3 +125,7 @@ padding: 10px;
 }
 
 
+#qrBox.show-qrCode {
+    max-height: 300px;
+    border: 1px solid #d1d1d1;
+}
