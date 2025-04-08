@@ -29,6 +29,7 @@ try {
         qrCode.src = qrCodeURL;
     })
     qrBox.classList.add("show-qrCode")
+    downloadBtn.style.display = "block";
 } catch (error) {
     console.error("QR generation error:", error);
 } finally {
@@ -45,8 +46,18 @@ function clearInput() {
     status.textContent = "";
 }
 
+function downloadQR() {
+    const link = document.createElement("a");
+    link.href = qrCode.src;
+    link.download = `QRCode_${Date.now()}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
   // Event listeners
   generateBtn.addEventListener("click", generateQR);
   clearBtn.addEventListener("click", clearInput);
+  downloadBtn.addEventListener("click", downloadQR);
 
 });
