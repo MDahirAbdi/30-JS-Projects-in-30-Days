@@ -37,7 +37,16 @@ try {
 }
 }
 
+function clearInput() {
+    qrText.value = "";
+    qrText.focus();
+    qrBox.classList.remove("show-qrCode");
+    qrCode.src = "";
+    status.textContent = "";
+}
+
   // Event listeners
   generateBtn.addEventListener("click", generateQR);
+  clearBtn.addEventListener("click", clearInput);
 
-})
+});
