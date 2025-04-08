@@ -21,6 +21,8 @@ if(inputValue.length > 500) {
 try {
     generateBtn.disabled = true;
     generateBtn.textContent = "Generating QR code ...."
+    status.textContent = "Generating QR code...";
+
     const qrCodeURL = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(inputValue)}`;
   
     await new Promise((resolve, reject) => {
@@ -30,6 +32,7 @@ try {
     })
     qrBox.classList.add("show-qrCode")
     downloadBtn.style.display = "block";
+    status.textContent = "QR code generated successfully!";
 } catch (error) {
     console.error("QR generation error:", error);
 } finally {
@@ -42,6 +45,7 @@ function clearInput() {
     qrText.value = "";
     qrText.focus();
     qrBox.classList.remove("show-qrCode");
+    downloadBtn.style.display = "none";
     qrCode.src = "";
     status.textContent = "";
 }
@@ -53,6 +57,16 @@ function downloadQR() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+}
+
+function showError(message) {
+    status.textContent = message;
+    status.classList.add("error");
+    qrText.classList.add("error");
+    setTimeout(() => {
+        status.textContent = "";
+        qrText.classList.remove("error");
+    }, 3000);
 }
 
   // Event listeners

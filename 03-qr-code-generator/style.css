@@ -150,3 +150,21 @@ padding: 10px;
   #downloadBtn:hover {
     background: #218838;
   }
+
+  /* Status Message */
+#status {
+    font-size: 14px;
+    margin: 10px 0;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  #status.error {
+    color: var(--danger-color);
+  }
+  
+  .error {
+    border-color: var(--danger-color) !important;
+    animation: shake 0.1s linear 10;
+  }
