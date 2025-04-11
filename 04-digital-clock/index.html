@@ -7,7 +7,17 @@
   </head>
   <body>
     <!-- Settings Panel (Theme + Time Format) -->
-    <div class="settings-panel"></div>
+    <div class="settings-panel">
+        <button id="themeToggle">🌓 Toggle Theme</button>
+        <div class="format-selector">
+            <label>
+                <input type="radio" name="timeFormat" value="12" checked> 12-hour
+            </label>
+            <label>
+                <input type="radio" name="timeFormat" value="24"> 24-hour
+            </label>
+        </div>
+    </div>
 
     <!-- Main Clock Container -->
     <div class="container">

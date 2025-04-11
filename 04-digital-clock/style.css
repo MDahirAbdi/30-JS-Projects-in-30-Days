@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
     --bg-color: linear-gradient(135deg, #0f2027, #203a43, #2c5364); 
     --clock-bg: linear-gradient(145deg, #1b1b2f, #16213e); 
@@ -41,4 +43,36 @@ body {
     align-items: center;
     background: var(--bg-color);
     padding: 20px;
+}
+
+.settings-panel {
+    margin-bottom: 30px;
+    background: var(--clock-bg);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: var(--clock-shadow);
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 425px;
+}
+
+.format-selector {
+    display: flex;
+    gap: 15px;
+}
+
+button {
+    background: var(--clock-bg);
+    color: var(--text-color);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+label {
+    color: var(--text-color);
 }
