@@ -33,3 +33,39 @@ function initClock() {
     setCalendarValue();
     setInterval(updateClock, 1000);
 }
+
+function updateClock() {
+    const now = new Date();
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+    const second = now.getSeconds();
+
+    let displayHour, currentPeriod;
+
+    if (timeFormat === '12') {
+        currentPeriod = setTimePeriod(hour);
+        displayHour = period(hour);
+        periodEl.style.display = 'block';
+    } else {
+        displayHour = hour;
+        periodEl.style.display = 'none';
+    }
+
+    if (lastHour !== displayHour) {
+        hourEl.textContent = addZero(displayHour);
+        lastHour = displayHour;
+    }
+    if (lastMinute !== minute) {
+        minutesEl.textContent = addZero(minute);
+        lastMinute = minute;
+    }
+    if (lastSecond !== second) {
+        secondsEl.textContent = addZero(second);
+        lastSecond = second;
+    }
+    if (timeFormat === '12' && lastPeriod !== currentPeriod) {
+        periodEl.textContent = currentPeriod;
+        lastPeriod = currentPeriod;
+    }
+}
+
