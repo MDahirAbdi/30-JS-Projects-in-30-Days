@@ -20,3 +20,16 @@ let lastMinute = null;
 let lastSecond = null;
 let lastPeriod = null;
 let timeFormat = '12';
+
+document.addEventListener('DOMContentLoaded', initClock);
+
+function initClock() {
+    loadPreferences();
+    themeToggle.addEventListener('click', toggleTheme);
+    formatRadios.forEach(radio => {
+        radio.addEventListener('change', handleFormatChange);
+    });
+    updateClock();
+    setCalendarValue();
+    setInterval(updateClock, 1000);
+}
