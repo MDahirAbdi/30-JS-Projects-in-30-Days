@@ -87,3 +87,41 @@ function setCalendarValue() {
     monthsEl.textContent = MONTHS[today.getMonth()];
 }
 
+// Helper functions
+function setTimePeriod(time) {
+    return time < 12 ? 'AM' : 'PM';
+}
+
+function period(time) {
+    return time > 12 ? time - 12 : time === 0 ? 12 : time;
+}
+
+function addZero(time) {
+    return time < 10 ? `0${time}` : time;
+}
+
+
+
+function handleFormatChange(e) {
+    timeFormat = e.target.value;
+    localStorage.setItem('timeFormat', timeFormat);
+    updateClock(); // Force immediate update
+}
+
+function loadPreferences() {
+    // Load theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.body.setAttribute('data-theme', savedTheme);
+    }
+    
+    // Load time format
+    const savedFormat = localStorage.getItem('timeFormat');
+    if (savedFormat) {
+        timeFormat = savedFormat;
+        document.querySelector(`input[value="${savedFormat}"]`).checked = true;
+    }
+}
+
+// Initialize the clock
+document.addEventListener('DOMContentLoaded', initClock);
