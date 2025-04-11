@@ -181,3 +181,17 @@ label {
     gap: 5px;
     flex-wrap: wrap;
 }
+
+@media (max-width: 480px) {
+    .digital-clock {
+        padding: 20px;
+    }
+    
+    .hour, .minutes {
+        width: auto;
+    }
+    
+    .settings-panel {
+        flex-direction: column;
+    }
+}
