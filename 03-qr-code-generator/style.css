@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
+:root {
+    --primary-color: #31473a;
+    --secondary-color: #edf4f2;
+    --accent-color: #28a745;
+    --danger-color: #dc3545;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,10 +15,174 @@
 }
 
 body {
-    background: #262a2f;
+    background: var(--primary-color);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
+.container {
+    background: var(--secondary-color);
+    width: 500px;
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.container p {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.container input {
+    width: 100%;
+    height: 50px;
+    border: 2px solid var(--primary-color);
+    outline: none;
+    padding: 10px;
+    margin: 10px 0 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.container input:focus {
+    border-color: #000;
+}
+
+/* Button group */
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Generate Button */
+#generateBtn {
+    background: var(--primary-color);
+    color: #fff;
+    flex: 1;
+    border: none;
+    height: 50px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#generateBtn:hover {
+    background: #25382d;
+}
+
+/* Clear Button */
+.clear-btn {
+    background: var(--danger-color);
+    color: #fff;
+    flex: 1;
+    border: none;
+    height: 50px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.clear-btn:hover {
+    background-color: #c82333;
+}
+
+/* QR Preview Section */
+.preview-section {
+    margin-top: 25px;
+  }
+
+#qrBox {
+width: 200px;
+border-radius: 8px;
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.5s ease-in-out;
+margin: 0 auto;
+}
+
+#qrBox img {
+width: 100%;
+padding: 10px;
+}
+
+
+#qrBox.show-qrCode {
+    max-height: 300px;
+    border: 1px solid #d1d1d1;
+}
+
+/* Download Button */
+#downloadBtn {
+    width: 100%;
+    height: 50px;
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  
+  #downloadBtn:hover {
+    background: #218838;
+  }
+
+  /* Status Message */
+#status {
+    font-size: 14px;
+    margin: 10px 0;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  #status.error {
+    color: var(--danger-color);
+  }
+  
+  .error {
+    border-color: var(--danger-color) !important;
+    animation: shake 0.1s linear 10;
+  }
+
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-2px);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    75% {
+      transform: translateX(2px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }

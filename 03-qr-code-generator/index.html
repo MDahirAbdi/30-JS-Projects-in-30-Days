@@ -7,6 +7,28 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="container">
+      <h1>QR code Generator</h1>
+      <p>Enter your text or URL to generate a QR Code</p>
+
+      <input type="text" id="qrText" placeholder="Enter your URL or text here..." />
+
+      <div class="button-group">
+        <button id="generateBtn">Generate QR Code</button>
+        <button id="clearBtn" class="clear-btn">Clear</button>
+
+      </div>
+
+      <p id="status"></p>
+
+      <div class="preview-section">
+        <div id="qrBox">
+          <img src="" id="qrCode" alt="QR Code">
+        </div>
+        <button id="downloadBtn" style="display: none">Download QR Code</button>
+      </div>
+
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
