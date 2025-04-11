@@ -1,0 +1,44 @@
+:root {
+    --bg-color: linear-gradient(135deg, #0f2027, #203a43, #2c5364); 
+    --clock-bg: linear-gradient(145deg, #1b1b2f, #16213e); 
+    --clock-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    --text-color: #f1f1f1;
+    --hour-color: #00c6ff;     
+    --minute-color: #ff6ec4;   
+    --second-color: #00f5a0;    
+    --period-color: #ff9f1c;    
+    --calendar-color: #b5de2b;  
+    --dots-color: #a0aec0;      
+}
+
+[data-theme="light"] {
+    --bg-color: linear-gradient(135deg, #f8f9fa, #e3e6e8); 
+    --clock-bg: linear-gradient(145deg, #ffffff, #f1f3f5);
+    --clock-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    --text-color: #2c2c2c;
+    --hour-color: #4facfe;      
+    --minute-color: #a18cd1;  
+    --second-color: #43e97b;   
+    --period-color: #ff7e5f;    
+    --calendar-color: #6a82fb; 
+    --dots-color: #adb5bd;   
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s ease;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-color);
+    padding: 20px;
+}
