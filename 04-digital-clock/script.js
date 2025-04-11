@@ -100,7 +100,11 @@ function addZero(time) {
     return time < 10 ? `0${time}` : time;
 }
 
-
+function toggleTheme() {
+    const newTheme = document.body.getAttribute('data-theme') === 'light' ? '' : 'light';
+    document.body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+}
 
 function handleFormatChange(e) {
     timeFormat = e.target.value;
