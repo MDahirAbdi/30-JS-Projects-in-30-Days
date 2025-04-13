@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-options animate__animated animate__fadeIn">
+            <div class="logo">🎮 Memory Master 🧠</div>
+            <div class="option-group">
+                <h3><span class="emoji-icon">🎨</span> Card Type:</h3>
+                <select id="card-type" class="styled-select">
+                    <option value="numbers">🔢 Numbers</option>
+                    <option value="colors">🌈 Colors</option>
+                    <option value="shapes">🔶 Shapes</option>
+                    <option value="emojis">😀 Emojis</option>
+                    <option value="animals">🐶 Animals</option>
+                </select>
+            </div>
+            <div class="option-group">
+                <h3><span class="emoji-icon">⚡</span> Difficulty:</h3>
+                <select id="difficulty" class="styled-select">
+                    <option value="easy">😊 Easy (4 pairs)</option>
+                    <option value="medium" selected>😎 Medium (8 pairs)</option>
+                    <option value="hard">🤯 Hard (12 pairs)</option>
+                </select>
+            </div>
+            <button id="start-btn" class="glow-button">🚀 Start Game</button>
+        </div>
+        <div id="memory-game" class="hidden"></div>
+        <div id="win-message" class="hidden">
+            <div class="win-content animate__animated animate__bounceIn">
+                <h2>🎉 You Won! 🎉</h2>
+                <p>Great memory skills!</p>
+                <button id="play-again-btn" class="glow-button">🔄 Play Again</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
