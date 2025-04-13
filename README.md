@@ -24,8 +24,8 @@ This repo contains **small, medium, and large-scale projects**, helping develope
 <details>
   <summary>📜 Click to view all 30 projects</summary>
 
-4️⃣ [Rock, Paper, Scissors Game](./04-rock-paper-scissors-game)  
-5️⃣ [Tic-Tac-Toe Game](./05-tic-tac-toe-game)  
+4️⃣ [Digital Clock](./04-digital-clock)  
+5️⃣ [Memory Game](./05-memory-game)  
 6️⃣ [Countdown Timer](./06-countdown-timer)  
 7️⃣ [Password Generator](./07-password-generator)  
 8️⃣ [Unit Converter](./08-unit-converter)  
