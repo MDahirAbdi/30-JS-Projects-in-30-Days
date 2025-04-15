@@ -23,6 +23,7 @@ const difficultySettings = {
 };
 
 // DOM elements
+const memoryWrapper = document.getElementById('memory-wrapper');
 const memoryGame = document.getElementById('memory-game');
 const cardTypeSelect = document.getElementById('card-type');
 const difficultySelect = document.getElementById('difficulty');
@@ -30,6 +31,7 @@ const startBtn = document.getElementById('start-btn');
 const playAgainBtn = document.getElementById('play-again-btn');
 const winMessage = document.getElementById('win-message');
 const gameOptions = document.querySelector('.game-options');
+
 
 // Initialize game
 startBtn.addEventListener('click', initGame);
@@ -50,7 +52,7 @@ function initGame() {
     // Setup game board
     memoryGame.innerHTML = '';
     memoryGame.style.gridTemplateColumns = `repeat(${difficultySettings[difficulty].columns}, 1fr)`;
-    memoryGame.classList.remove('hidden');
+    memoryWrapper.classList.remove('hidden');
     gameOptions.classList.add('hidden');
     winMessage.style.display = 'none';
     
@@ -69,11 +71,9 @@ function createCard(value) {
     const card = document.createElement('div');
     card.classList.add('memory-card');
     
-    // Add specific class based on card type
-    if (cardType === 'colors') card.classList.add('color-card');
-    if (cardType === 'emojis') card.classList.add('emoji-card');
-    if (cardType === 'shapes') card.classList.add('shape-card');
-    if (cardType === 'animals') card.classList.add('animal-card');
+
+
+    if (cardType !== 'numbers') card.classList.add(`${cardType}-card`);
     
     const cardFront = document.createElement('div');
     cardFront.classList.add('card-face', 'card-front');
@@ -132,22 +132,16 @@ function flipCard() {
     checkMatch();
 }
 
+
+function getCardValue(card) {
+    return cardType === 'colors' 
+        ? card.querySelector('.card-front').style.backgroundColor
+        : card.querySelector('.card-front').textContent;
+}
+
 function checkMatch() {
-    let isMatch = false;
-    
-    if (cardType === 'colors') {
-        isMatch = firstCard.querySelector('.card-front').style.backgroundColor === 
-                 secondCard.querySelector('.card-front').style.backgroundColor;
-    } else {
-        isMatch = firstCard.querySelector('.card-front').textContent === 
-                 secondCard.querySelector('.card-front').textContent;
-    }
-    
-    if (isMatch) {
-        disableCards();
-    } else {
-        unflipCards();
-    }
+    const isMatch = getCardValue(firstCard) === getCardValue(secondCard);
+    isMatch ? disableCards() : unflipCards();
 }
 
 function disableCards() {
@@ -194,6 +188,5 @@ function showWinMessage() {
 
 function resetGame() {
     winMessage.style.display = 'none';
-    memoryGame.classList.add('hidden');
     gameOptions.classList.remove('hidden');
 }
