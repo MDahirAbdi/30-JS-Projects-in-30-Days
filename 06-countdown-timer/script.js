@@ -14,5 +14,9 @@ const lapBtn = document.getElementById('lapBtn');
 const lapsContainer = document.getElementById('laps');
 const alarmSound = document.getElementById('alarmSound');
 
+startBtn.addEventListener('click', toggleTimer);
+resetBtn.addEventListener('click', resetTimer);
+lapBtn.addEventListener('click', recordLap);
+
 
 });

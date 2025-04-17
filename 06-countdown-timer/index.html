@@ -21,6 +21,7 @@
             <input id="inputSeconds" type="number" min="0" max="59" placeholder="SS" />
             
           </div>
+          
 
         <div id="timer" aria-live="polite">00:00:00</div>
 
@@ -33,8 +34,13 @@
         <div class="laps-container" id="laps" role="log" aria-label="Lap Times"></div>
     </div>
 
-
-
+    <div class="area">
+        <ul class="circles">
+            <li></li><li></li><li></li><li></li><li></li>
+            <li></li><li></li><li></li><li></li><li></li>
+        </ul>
+    </div>
+    <audio id="alarmSound" src="alarm.mp3" preload="auto"></audio>
     <script src="script.js"></script>
 </body>
 </html>
