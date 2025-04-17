@@ -1,22 +1,42 @@
-document.addEventListener('DOMContentLoaded', () => { 
-let timer;
-let totalSeconds = 0;
-let isRunning = false;
-let isPaused = false;
+document.addEventListener("DOMContentLoaded", () => {
+  let timer;
+  let totalSeconds = 0;
+  let isRunning = false;
+  let isPaused = false;
 
-const inputHours = document.getElementById('inputHours');
-const inputMinutes = document.getElementById('inputMinutes');
-const inputSeconds = document.getElementById('inputSeconds');
-const timerDisplay = document.getElementById('timer');
-const startBtn = document.getElementById('startBtn');
-const resetBtn = document.getElementById('resetBtn');
-const lapBtn = document.getElementById('lapBtn');
-const lapsContainer = document.getElementById('laps');
-const alarmSound = document.getElementById('alarmSound');
+  const inputHours = document.getElementById("inputHours");
+  const inputMinutes = document.getElementById("inputMinutes");
+  const inputSeconds = document.getElementById("inputSeconds");
+  const timerDisplay = document.getElementById("timer");
+  const startBtn = document.getElementById("startBtn");
+  const resetBtn = document.getElementById("resetBtn");
+  const lapBtn = document.getElementById("lapBtn");
+  const lapsContainer = document.getElementById("laps");
+  const alarmSound = document.getElementById("alarmSound");
 
-startBtn.addEventListener('click', toggleTimer);
-resetBtn.addEventListener('click', resetTimer);
-lapBtn.addEventListener('click', recordLap);
+  startBtn.addEventListener("click", toggleTimer);
+  resetBtn.addEventListener("click", resetTimer);
+  lapBtn.addEventListener("click", recordLap);
+
+  function toggleTimer() {
+    if (!isRunning) {
+      isRunning = true;
+      isPaused = false;
+      startBtn.textContent = "Pause";
+      lapBtn.style.display = "inline-block";
+    } else {
+      pauseTimer();
+    }
+  }
+
+  function pauseTimer() {
+    clearInterval(timer);
+    isRunning = false;
+    isPaused = true;
+    startBtn.textContent = "Resume";
+  }
+
+  
 
 
 });
