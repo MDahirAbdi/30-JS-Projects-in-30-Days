@@ -244,3 +244,33 @@ button:focus {
         border-radius: 50%;
     }
 }
+
+@media (max-width: 768px) {
+    #timer {
+        font-size: 4rem;
+    }
+    
+    button {
+        padding: 12px 24px;
+        min-width: 100px;
+    }
+    
+    .controls {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    #timer {
+        font-size: 3rem;
+    }
+    
+    .timer-container h1 {
+        font-size: 1.8rem;
+    }
+    
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
