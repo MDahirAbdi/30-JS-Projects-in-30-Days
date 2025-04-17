@@ -74,7 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
         inputMinutes.value = '';
         inputSeconds.value = '';
 
-      
+        if (!alarmSound.paused) {
+            alarmSound.pause();
+            alarmSound.currentTime = 0;
+        }
     }
 
     function updateCountdown() {
@@ -87,6 +90,11 @@ document.addEventListener('DOMContentLoaded', () => {
             startBtn.textContent = "Start";
             lapBtn.style.display = "none";
 
+            // Play alarm first, then alert
+            alarmSound.currentTime = 0;
+            alarmSound.play().catch((e) => {
+                console.error("🔇 Alarm failed to play:", e);
+            });
 
             setTimeout(() => {
                 alert("⏰ Time's up!");
@@ -106,4 +114,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return String(num).padStart(2, '0');
     }
 
+    function recordLap() {
+        if (totalSeconds <= 0) return;
+        const lapTime = timerDisplay.textContent;
+        const lapItem = document.createElement('div');
+        lapItem.className = 'lap-item';
+        lapItem.textContent = `Lap ${lapsContainer.children.length + 1}: ${lapTime}`;
+        lapsContainer.prepend(lapItem);
+        lapsContainer.scrollTop = 0;
+    }
 });
