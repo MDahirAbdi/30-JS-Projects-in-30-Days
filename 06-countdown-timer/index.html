@@ -1,11 +1,29 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Countdown Timer</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    
+    <div class="timer-container">
+        <h1>Countdown Timer</h1>
+        
+
+        <div id="timer" aria-live="polite">00:00:00</div>
+
+        <div class="controls">
+            <button id="startBtn">Start</button>
+            <button id="resetBtn">Reset</button>
+            <button id="lapBtn" style="display:none">Lap</button>
+        </div>
+
+        <div class="laps-container" id="laps" role="log" aria-label="Lap Times"></div>
+    </div>
+
+
+
+    <script src="script.js"></script>
 </body>
 </html>

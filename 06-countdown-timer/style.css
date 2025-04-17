@@ -12,3 +12,18 @@ body {
     justify-content: center;
     height: 100vh;
 }
+
+.timer-container {
+    width: 100%;
+    max-width: 800px;
+    position: absolute;
+    z-index: 999;
+    text-align: center;
+    padding: 20px;
+}
+
+.timer-container h1 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
