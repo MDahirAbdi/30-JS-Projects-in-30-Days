@@ -6,11 +6,12 @@
     box-sizing: border-box;
 }
 body {
-    font-family: "Kode mono" , monospace;
+    font-family: "Kode Mono", monospace;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    margin: 0;
 }
 
 .timer-container {
@@ -26,4 +27,102 @@ body {
     color: #fff;
     margin-bottom: 20px;
     font-size: 2.5rem;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.input-container label {
+    display: block;
+    font-size: 14px;
+    color: #eee;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.input-container input {
+    width: 80px;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-bottom: 2px solid #9f9fe7;
+    background-color: transparent;
+    color: #eeeeef;
+    font-family: "Roboto", monospace;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+
+#timer {
+    margin: 20px 0;
+    text-align: center;
+    color: #fff;
+    font-size: 7rem;
+    font-weight: 500;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: transparent;
+    font-family: "Roboto", monospace;
+    border: 2px solid #9f9fe7;
+    text-transform: uppercase;
+    color: #eeeeef;
+    padding: 18px 40px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+button:hover {
+    color: #fff;
+    background-color: #4a51d4;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+#lapBtn {
+    display: none;
+}
+
+.laps-container {
+    max-height: 200px;
+    overflow-y: auto;
+    color: white;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.lap-item {
+    padding: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
