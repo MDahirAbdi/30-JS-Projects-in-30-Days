@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
         createPassword();
         regenerateBtn.style.display = 'inline-flex';
       });
+
+      regenerateBtn.addEventListener('click', createPassword);
+      copyBtn.addEventListener('click', copyPassword);
     
 
         
@@ -75,4 +78,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return array;
       }
+
+      function copyPassword() {
+        const pwd = passwordField.value;
+        if (!pwd) return;
+        navigator.clipboard.writeText(pwd)
+          .then(() => showModal('Password copied to clipboard!'))
+          .catch(() => showModal('Failed to copy password'));
+      }
+    
 });
