@@ -61,4 +61,18 @@ document.addEventListener('DOMContentLoaded', function() {
         passwordField.value = password;
         updateStrengthIndicator(password);
       }
+
+      function getSecureRandomChar(str) {
+        const randomValues = new Uint32Array(1);
+        window.crypto.getRandomValues(randomValues);
+        return str[randomValues[0] % str.length];
+      }
+    
+      function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
 });
