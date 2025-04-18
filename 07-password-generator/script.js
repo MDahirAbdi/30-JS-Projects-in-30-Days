@@ -97,5 +97,47 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.classList.add('show');
         setTimeout(() => modal.classList.remove('show'), 2000);
       }
+
+      function updateStrengthIndicator(password) {
+        const strengthText = document.getElementById('strength-text');
+        const strengthFill = document.querySelector('.strength-fill');
+        const entropyBits = document.getElementById('entropy-bits');
+    
+        const length = password.length;
+    
+        const poolSize = Object.entries(charSets).reduce((acc, [type, chars]) => {
+          const regex = new RegExp(`[${chars.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&')}]`);
+          if (regex.test(password)) {
+            acc += chars.length;
+          }
+          return acc;
+        }, 0);
+    
+        const entropy = length * Math.log2(poolSize || 1);
+        entropyBits.textContent = `~${Math.round(entropy)} bits`;
+    
+        let strength, color;
+        if (entropy > 80) {
+          strength = 'Very Strong';
+          color = '#00b894';
+        } else if (entropy > 60) {
+          strength = 'Strong';
+          color = '#4CAF50';
+        } else if (entropy > 40) {
+          strength = 'Good';
+          color = '#8BC34A';
+        } else if (entropy > 20) {
+          strength = 'Fair';
+          color = '#FFC107';
+        } else {
+          strength = 'Weak';
+          color = '#F44336';
+        }
+    
+        strengthText.firstChild.textContent = strength;
+        strengthText.style.color = color;
+        strengthFill.style.width = `${Math.min(entropy, 100)}%`;
+        strengthFill.style.backgroundColor = color;
+      }
     
 });
