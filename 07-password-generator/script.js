@@ -90,5 +90,12 @@ document.addEventListener('DOMContentLoaded', function() {
           .then(() => showModal('Password copied to clipboard!'))
           .catch(() => showModal('Failed to copy password'));
       }
+
+      function showModal(message) {
+        const modal = document.getElementById('modal');
+        modal.querySelector('.modal-content').textContent = message;
+        modal.classList.add('show');
+        setTimeout(() => modal.classList.remove('show'), 2000);
+      }
     
 });
