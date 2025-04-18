@@ -24,6 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
       regenerateBtn.addEventListener('click', createPassword);
       copyBtn.addEventListener('click', copyPassword);
     
+      lengthSlider.addEventListener('input', function () {
+        lengthNumber.value = this.value;
+        lengthValue.textContent = this.value;
+      });
 
         
     function createPassword() {
