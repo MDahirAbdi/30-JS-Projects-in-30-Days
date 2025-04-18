@@ -1,68 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Password Generator</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
-</head>
-<body>
-  <div class="container">
-    <h1>Password Generator</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Password Generator</h1>
 
-    <div class="input-group">
-      <label for="length">Password Length:</label>
-      <input type="range" id="length" min="6" max="30" value="12">
-      <input type="number" id="length-number" min="6" max="30" value="12">
-      <span id="length-value">12</span>
-    </div>
+      <div class="input-group">
+        <label for="length">Password Length:</label>
+        <input type="range" id="length" min="6" max="30" value="12" />
+        <input type="number" id="length-number" min="6" max="30" value="12" />
+        <span id="length-value">12</span>
+      </div>
 
-    <div class="checkboxes">
-      <label><input type="checkbox" id="uppercase" checked> Uppercase</label>
-      <label><input type="checkbox" id="lowercase" checked> Lowercase</label>
-      <label><input type="checkbox" id="numbers" checked> Numbers</label>
-      <label><input type="checkbox" id="special"> Special Characters</label>
-    </div>
+      <div class="checkboxes">
+        <label
+          ><input type="checkbox" id="uppercase" checked /> Uppercase</label
+        >
+        <label
+          ><input type="checkbox" id="lowercase" checked /> Lowercase</label
+        >
+        <label><input type="checkbox" id="numbers" checked /> Numbers</label>
+        <label><input type="checkbox" id="special" /> Special Characters</label>
+      </div>
 
-    <div class="output">
-      <input type="text" id="password" readonly placeholder="Your password will appear here" />
-      <button id="copy-btn" title="Copy password">
-        <i class="ph ph-copy"></i>
-      </button>
-    </div>
+      <div class="output">
+        <input
+          type="text"
+          id="password"
+          readonly
+          placeholder="Your password will appear here"
+        />
+        <button id="copy-btn" title="Copy password">
+          <i class="ph ph-copy"></i>
+        </button>
+      </div>
 
-    <div class="buttons">
-      <button id="generate-btn">
-        <i class="ph ph-magic-wand"></i> Generate
-      </button>
-      <button id="regenerate-btn" title="Regenerate">
-        <i class="ph ph-arrow-counter-clockwise"></i>
-      </button>
-    </div>
+      <div class="buttons">
+        <button id="generate-btn">
+          <i class="ph ph-magic-wand"></i> Generate
+        </button>
+        <button id="regenerate-btn" title="Regenerate">
+          <i class="ph ph-arrow-counter-clockwise"></i>
+        </button>
+      </div>
 
-    <div class="strength-meter">
-      <div class="strength-fill"></div>
-    </div>
+      <div class="strength-meter">
+        <div class="strength-fill"></div>
+      </div>
 
-    <div class="strength-info">
-      <span id="strength-text">
-        Strength
-        <span class="tooltip">ℹ
-          <span class="tooltip-text">
-            Password strength is estimated using entropy, which depends on length and character variety.
-            Higher entropy = harder to crack.
+      <div class="strength-info">
+        <span id="strength-text">
+          Strength
+          <span class="tooltip"
+            >ℹ
+            <span class="tooltip-text">
+              Password strength is estimated using entropy, which depends on
+              length and character variety. Higher entropy = harder to crack.
+            </span>
           </span>
         </span>
-      </span>
-      <span id="entropy-bits"></span>
+        <span id="entropy-bits"></span>
+      </div>
+
+      <div id="modal" class="modal">
+        <div class="modal-content">Message</div>
+      </div>
     </div>
 
-    <div id="modal" class="modal">
-      <div class="modal-content">Message</div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
