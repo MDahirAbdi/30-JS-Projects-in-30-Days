@@ -19,16 +19,16 @@ This repo contains **small, medium, and large-scale projects**, helping develope
 1️⃣ [To-Do List App](./01-to-do-list-app) ([Live Demo](https://to-do-list-app-seven-mu.vercel.app/))  
 2️⃣ [Calculator](./02-calculator) ([Live Demo](https://calculator-app-azure-chi.vercel.app/))  
 3️⃣ [Qr code Generator](./03-qr-code-generator) ([Live Demo](https://qr-code-generator-web-lac.vercel.app/))  
-... *(See full list below!)*  
+4️⃣ [Digital Clock](./04-digital-clock) ([Live Demo](https://digital-clock-jade-three.vercel.app/))  
+5️⃣ [Memory Game](./05-memory-game) ([Live Demo](https://memory-game-nu-lyart.vercel.app/))  
+6️⃣ [Countdown Timer](./06-countdown-timer) ([Live Demo](https://countdown-timer-three-beryl.vercel.app/))  
+7️⃣ [Password Generator](./07-password-generator) ([Live Demo](https://password-generator-mu-flax-18.vercel.app/)) 
+
+... *(See full list below!)* 
 
 <details>
   <summary>📜 Click to view all 30 projects</summary>
-
-4️⃣ [Digital Clock](./04-digital-clock) ([Live Demo](https://digital-clock-jade-three.vercel.app/))  
-5️⃣ [Memory Game](./05-memory-game) ([Live Demo](https://memory-game-silk.vercel.app/))  
-6️⃣ [Countdown Timer](./06-countdown-timer) ([Live Demo](https://countdown-timer-coral.vercel.app/))  
-7️⃣ [Password Generator](./07-password-generator) ([Live Demo](https://password-generator-ashen.vercel.app/)) 
-
+  
 8️⃣ [Unit Converter](./08-unit-converter)  
 9️⃣ [Weather App](./09-weather-app)  
 1️⃣0️⃣ [Currency Converter](./10-currency-converter)  
