@@ -9,20 +9,21 @@ This repo contains **small, medium, and large-scale projects**, helping develope
 
 ---
 
-## 🚀 Projects List  
+## 🚀 Projects List  Live preview 
 
 🔹 **Beginner-Friendly** (Simple UI & JavaScript Basics)  
 🔹 **Intermediate** (APIs, Animations, Storage)  
 🔹 **Advanced** (Databases, Real-Time Features)  
 
 ### 📌 Small-Scale Projects  
-1️⃣ [To-Do List App](./01-to-do-list-app)  
-2️⃣ [Calculator](./02-calculator)  
+1️⃣ [To-Do List App](./01-to-do-list-app) ([Live Demo](https://to-do-list-app-seven-mu.vercel.app/)) 
+2️⃣ [Calculator](./02-calculator) ([Live Demo](https://calculator-app-azure-chi.vercel.app/)) 
 3️⃣ [Qr code Generator](./03-qr-code-generator)  
 ... *(See full list below!)*  
 
 <details>
   <summary>📜 Click to view all 30 projects</summary>
+
 
 4️⃣ [Digital Clock](./04-digital-clock)  
 5️⃣ [Memory Game](./05-memory-game)  
