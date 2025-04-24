@@ -6,7 +6,7 @@
   <title>Random Joke Generator</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styls.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <button id="themeToggle" aria-label="Toggle theme">🌓 Toggle Theme</button>
@@ -15,15 +15,13 @@
       <h1><i class="fas fa-laugh-squint"></i> Random Joke Generator</h1>
     </div>
 
-    <div class="category-selector">
-      <div class="category-buttons">
-        <button class="category-btn" data-category="programming">Programming</button>
-        <button class="category-btn" data-category="general">General</button>
-        <button class="category-btn" data-category="knock-knock">Knock-Knock</button>
-      </div>
+    <div class="category-buttons">
+      <button class="category-btn" data-category="programming">Programming</button>
+      <button class="category-btn" data-category="general">General</button>
+      <button class="category-btn" data-category="knock-knock">Knock-Knock</button>
     </div>
 
-    <div id="joke" class="joke fade" aria-live="polite">
+    <div id="joke" class="joke" aria-live="polite">
       <div class="joke-actions">
         <button id="copyBtn" class="share-btn" aria-label="Copy joke to clipboard">
           <i class="far fa-copy"></i>
@@ -36,7 +34,7 @@
       <div class="punchline"></div>
     </div>
     
-    <div id="loading" class="loading" aria-live="polite"></div>
+    <div id="loading" class="loading"></div>
 
     <div class="controls">
       <button id="jokeBtn" aria-label="Get new joke">

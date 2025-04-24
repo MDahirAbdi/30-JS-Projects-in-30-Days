@@ -10,14 +10,15 @@ const speakBtn = document.getElementById('speakBtn');
 const favoritesList = document.getElementById('favoritesList');
 const loadingEl = document.getElementById('loading');
 const themeToggle = document.getElementById('themeToggle');
-const jokeCategory = document.getElementById('jokeCategory');
 const noFavorites = document.getElementById('noFavorites');
 const body = document.body;
+const categoryBtns = document.querySelectorAll('.category-btn');
 
 // State
 let currentJoke = { setup: '', punchline: '' };
 let favorites = JSON.parse(localStorage.getItem('favoriteJokes')) || [];
 let isDarkMode = localStorage.getItem('darkMode') === 'true';
+let currentCategory = 'general';
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,6 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     themeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
   }
+  
+  // Set initial active category
+  categoryBtns.forEach(btn => {
+    if (btn.dataset.category === currentCategory) {
+      btn.classList.add('active');
+    }
+  });
   
   // Load saved jokes
   updateFavorites();
@@ -41,6 +49,16 @@ copyBtn.addEventListener('click', copyToClipboard);
 speakBtn.addEventListener('click', speakJoke);
 themeToggle.addEventListener('click', toggleThemeHandler);
 
+// Category button event listeners
+categoryBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentCategory = btn.dataset.category;
+    categoryBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    generateJoke();
+  });
+});
+
 // Functions
 async function generateJoke() {
   loadingEl.style.display = 'block';
@@ -48,29 +66,19 @@ async function generateJoke() {
   punchlineEl.classList.remove('show');
   
   try {
-    let apiUrl = 'https://official-joke-api.appspot.com/random_joke';
-    const category = jokeCategory.value;
-    
-    if (category !== 'any') {
-      apiUrl = `https://official-joke-api.appspot.com/jokes/${category}/random`;
-    }
-    
+    const apiUrl = `https://official-joke-api.appspot.com/jokes/${currentCategory}/random`;
     const res = await fetch(apiUrl);
-    let data = await res.json();
-    
-    // Handle array response for category jokes
-    if (Array.isArray(data)) {
-      data = data[0];
-    }
+    const data = await res.json();
+    const joke = Array.isArray(data) ? data[0] : data;
     
     setTimeout(() => {
       currentJoke = {
-        setup: data.setup,
-        punchline: data.punchline
+        setup: joke.setup,
+        punchline: joke.punchline
       };
       
-      setupEl.textContent = data.setup;
-      punchlineEl.textContent = data.punchline;
+      setupEl.textContent = joke.setup;
+      punchlineEl.textContent = joke.punchline;
       loadingEl.style.display = 'none';
       jokeEl.style.opacity = 1;
       
@@ -81,17 +89,19 @@ async function generateJoke() {
     }, 600);
   } catch (error) {
     console.error('Error fetching joke:', error);
-    showError();
+    showToast('Failed to load joke. Please try again.', 'danger');
+    setupEl.textContent = 'Oops! Failed to load joke. Please try again.';
+    punchlineEl.textContent = '';
+    loadingEl.style.display = 'none';
+    jokeEl.style.opacity = 1;
   }
 }
 
 function saveJoke() {
   if (!currentJoke.setup) {
-    showToast('No joke to save! Get a joke first.');
+    showToast('No joke to save! Get a joke first.', 'danger');
     return;
   }
-  
-  const jokeString = `${currentJoke.setup}\n\n${currentJoke.punchline}`;
   
   if (favorites.some(joke => joke.setup === currentJoke.setup)) {
     showToast('This joke is already saved!');
@@ -111,7 +121,6 @@ function saveJoke() {
   showToast('Joke saved to favorites!');
 }
 
-// Update the favorites list item creation in updateFavorites()
 function updateFavorites() {
   favoritesList.innerHTML = '';
   
@@ -154,6 +163,7 @@ function updateFavorites() {
     favoritesList.appendChild(li);
   });
 }
+
 function clearFavorites() {
   if (favorites.length === 0) {
     showToast('No saved jokes to clear');
@@ -170,7 +180,7 @@ function clearFavorites() {
 
 function copyToClipboard() {
   if (!currentJoke.setup) {
-    showToast('No joke to copy! Get a joke first.');
+    showToast('No joke to copy! Get a joke first.', 'danger');
     return;
   }
   
@@ -178,49 +188,40 @@ function copyToClipboard() {
   
   navigator.clipboard.writeText(jokeText)
     .then(() => showToast('Joke copied to clipboard!'))
-    .catch(err => {
-      console.error('Failed to copy:', err);
-      showToast('Failed to copy joke');
-    });
+    .catch(() => showToast('Failed to copy joke', 'danger'));
 }
 
 function speakJoke() {
   if (!currentJoke.setup) {
-    showToast('No joke to read! Get a joke first.');
+    showToast('No joke to read! Get a joke first.', 'danger');
     return;
   }
   
   if ('speechSynthesis' in window) {
-    // Cancel any ongoing speech
     speechSynthesis.cancel();
     
-    // Create utterance for setup
     const setupUtterance = new SpeechSynthesisUtterance(currentJoke.setup);
     setupUtterance.rate = 0.9;
     
-    // Create utterance for punchline with different voice and pause
     const punchlineUtterance = new SpeechSynthesisUtterance(currentJoke.punchline);
     punchlineUtterance.rate = 0.9;
     punchlineUtterance.pitch = 1.2;
     
-    // Get voices and try to find different ones
     const voices = speechSynthesis.getVoices();
     if (voices.length > 1) {
       setupUtterance.voice = voices[0];
       punchlineUtterance.voice = voices[1 % voices.length];
     }
     
-    // Speak setup first
     speechSynthesis.speak(setupUtterance);
     
-    // Speak punchline after a delay
     setupUtterance.onend = function() {
       setTimeout(() => {
         speechSynthesis.speak(punchlineUtterance);
       }, 500);
     };
   } else {
-    showToast('Text-to-speech not supported in your browser');
+    showToast('Text-to-speech not supported in your browser', 'danger');
   }
 }
 
@@ -241,13 +242,6 @@ function saveFavoritesToStorage() {
   localStorage.setItem('favoriteJokes', JSON.stringify(favorites));
 }
 
-function showError() {
-  setupEl.textContent = 'Oops! Failed to load joke. Please try again.';
-  punchlineEl.textContent = '';
-  loadingEl.style.display = 'none';
-  jokeEl.style.opacity = 1;
-}
-
 function showToast(message, type = 'success') {
   const toast = document.createElement('div');
   toast.className = `toast ${type}`;
@@ -259,23 +253,14 @@ function showToast(message, type = 'success') {
   toast.innerHTML = `${icon} ${message}`;
   document.body.appendChild(toast);
   
-  // Add the show class with a slight delay
   setTimeout(() => {
     toast.classList.add('show');
   }, 10);
   
-  // Remove toast after 3 seconds
   setTimeout(() => {
     toast.classList.remove('show');
     setTimeout(() => {
       document.body.removeChild(toast);
     }, 300);
   }, 3000);
-}
-
-// Load voices when they become available
-if ('speechSynthesis' in window) {
-  speechSynthesis.onvoiceschanged = function() {
-    // Voices are loaded
-  };
 }
