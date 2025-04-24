@@ -29,7 +29,7 @@ This repo contains **small, medium, and large-scale projects**, helping develope
 <details>
   <summary>📜 Click to view all 30 projects</summary>
   
-8️⃣ [Unit Converter](./08-unit-converter)  
+8️⃣ [Random Joke Generator](./08-random-joke-generator)  
 9️⃣ [Weather App](./09-weather-app)  
 1️⃣0️⃣ [Currency Converter](./10-currency-converter)  
 1️⃣1️⃣ [Quiz App](./11-quiz-app)  
