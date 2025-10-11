@@ -1,194 +1,223 @@
 <!DOCTYPE html>
 <html lang="so">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @media print {
-            @page {
-                size: 58mm auto;
-                margin: 0;
-            }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-            html,
-            body {
-                width: 58mm;
-                height: auto;
-                margin: 0;
-                padding: 0;
-                background: none;
-            }
+  <!-- Fixed-width font for consistent alignment -->
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
 
-            body * {
-                visibility: hidden;
-            }
+  <style>
+    body {
+      font-family: 'Courier Prime', 'Courier New', monospace;
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+    }
 
-            .thermal-receipt,
-            .thermal-receipt * {
-                visibility: visible;
-            }
+    .thermal-receipt {
+      width: 58mm;
+      max-width: 58mm;
+      margin: 0 auto;
+      font-size: 11px;
+      font-family: 'Courier Prime', 'Courier New', monospace;
+    }
 
-            .thermal-receipt {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 58mm !important;
-                max-width: 58mm !important;
-                font-size: 10px;
-                line-height: 1.1;
-                transform: scale(1);
-            }
-        }
+    .divider {
+      border-top: 1px dashed #000;
+      margin: 4px 0;
+    }
 
-        .thermal-receipt {
-            width: 58mm;
-            max-width: 58mm;
-            font-family: 'Courier New', monospace;
-            font-size: 11px;
-            margin: 0 auto;
-        }
+    .text-xxs {
+      font-size: 10px;
+    }
 
-        .divider {
-            border-top: 1px dashed #000;
-            margin: 4px 0;
-        }
+    .text-xxxs {
+      font-size: 9px;
+    }
 
-        .text-xxs {
-            font-size: 10px;
-        }
+    .text-micro {
+      font-size: 8px;
+    }
 
-        .text-xxxs {
-            font-size: 9px;
-        }
+    /* Print Styles */
+    @media print {
+      @page {
+        size: 58mm auto;
+        margin: 0;
+      }
 
-        .text-micro {
-            font-size: 8px;
-        }
-    </style>
+      html, body {
+        width: 58mm;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        background: none;
+      }
+
+      body * {
+        visibility: hidden;
+      }
+
+      .thermal-receipt, .thermal-receipt * {
+        visibility: visible;
+      }
+
+      .thermal-receipt {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 58mm !important;
+        max-width: 58mm !important;
+        transform: scale(1);
+        font-size: 10px;
+        line-height: 1.1;
+      }
+
+      #printButton {
+        display: none !important;
+      }
+    }
+
+    /* Print Button Styling (not shown when printing) */
+    #printButton {
+      display: block;
+      width: 100%;
+      max-width: 58mm;
+      margin: 10px auto;
+      padding: 6px 0;
+      background: #000;
+      color: white;
+      font-family: 'Courier Prime', monospace;
+      font-size: 12px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    #printButton:active {
+      opacity: 0.7;
+    }
+  </style>
 </head>
 
 <body class="bg-white p-1">
-    <div class="thermal-receipt mx-auto bg-white text-black p-2">
+  <div class="thermal-receipt bg-white text-black p-2">
 
-        <!-- Taariikh & Waqti -->
-        <div class="flex justify-between text-xxxs mb-1">
-            <span>Taariikh: <span id="currentDate">15/12/2024</span></span>
-            <span>Waqti: <span id="currentTime">14:30:45</span></span>
-        </div>
-
-        <!-- Cinwaan -->
-        <div class="text-center mb-1">
-            <h1 class="text-lg font-bold uppercase">SOM WATER</h1>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Macluumaadka Shirkadda -->
-        <div class="mb-1 text-center">
-            <p class="text-xxs leading-tight">Dharkenley, Laanta 5, Aagga 6</p>
-            <p class="text-xxs leading-tight">Muqdisho, Soomaaliya</p>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Macluumaadka Macmiilka -->
-        <div class="mb-1">
-            <div class="space-y-0 text-xxs">
-                <div class="flex justify-between">
-                    <span class="font-bold">Guri No:</span>
-                    <span class="text-right font-bold">B5-Z6-127</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="font-bold">Magacaga:</span>
-                    <span class="text-right font-bold">Ahmed Mohamed Ali</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Faahfaahinta Biyaha -->
-        <div class="mb-1">
-            <div class="space-y-0 text-xxs">
-                <div class="flex justify-between">
-                    <span class="font-bold">Akhri Hore:</span>
-                    <span class="font-bold">1,250 m³</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="font-bold">Akhri Dambe:</span>
-                    <span class="font-bold">1,345 m³</span>
-                </div>
-                <div class="flex justify-between font-bold">
-                    <span>M3:</span>
-                    <span>95 m³</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="font-bold">Rate:</span>
-                    <span class="font-bold">$0.85</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Xisaabinta Bixinta -->
-        <div class="mb-1">
-            <div class="space-y-0 text-xxs">
-                <div class="flex justify-between font-bold">
-                    <span>Lacagta:</span>
-                    <span>$80.75</span>
-                </div>
-                <div class="flex justify-between font-bold">
-                    <span>Resto Hore:</span>
-                    <span>$25.50</span>
-                </div>
-                <div class="flex justify-between font-extrabold border-t border-black pt-1">
-                    <span>WADARTA GUUd:</span>
-                    <span>$106.25</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Tilmaamaha Bixinta -->
-        <div class="text-center text-micro leading-tight mt-1">
-            <p class="font-bold uppercase mb-0">Habka Lacagta Bixinta</p>
-            <p class="font-bold">*789*607854*LACAGTA#</p>
-            <p class="mt-0">si aad ugu bixiso mobile-kaaga.</p>
-            <p class="font-bold mt-0">
-                Fadlan geli Lambarka Gurigaaga
-            </p>
-            <p class="font-bold">(tusaale: B5-Z6-127)</p>
-            <p>qaybta fariinta ama faahfaahinta.</p>
-            <p class="mt-0 font-bold">Haddii aan lambarka guriga la gelin,</p>
-            <p class="font-bold">lacagta lama xaqiijin karo.</p>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Footer -->
-        <div class="text-center text-xxxs mt-1">
-            <p class="font-bold">Thank you for using Som Water !</p>
-            <p class="font-bold">Powered by Blue ERP Systems</p>
-        </div>
+    <!-- Taariikh & Waqti -->
+    <div class="flex justify-between text-xxxs mb-1">
+      <span>Taariikh: <span id="currentDate">15/12/2024</span></span>
+      <span>Waqti: <span id="currentTime">14:30:45</span></span>
     </div>
 
-    <script>
-        // Cusbooneysii taariikhda iyo waqtiga
-        function updateDateTime() {
-            const now = new Date();
-            const date = now.toLocaleDateString('en-GB');
-            const time = now.toLocaleTimeString('en-GB', { hour12: false });
+    <!-- Cinwaan -->
+    <div class="text-center mb-1">
+      <h1 class="text-lg font-bold uppercase">SOM WATER</h1>
+    </div>
 
-            document.getElementById('currentDate').textContent = date;
-            document.getElementById('currentTime').textContent = time;
-        }
+    <div class="divider"></div>
 
-        updateDateTime();
-    </script>
+    <!-- Macluumaadka Shirkadda -->
+    <div class="mb-1 text-center">
+      <p class="text-xxs leading-tight">Dharkenley, Laanta 5, Aagga 6</p>
+      <p class="text-xxs leading-tight">Muqdisho, Soomaaliya</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Macluumaadka Macmiilka -->
+    <div class="mb-1">
+      <div class="space-y-0 text-xxs">
+        <div class="flex justify-between">
+          <span class="font-bold">Guri No:</span>
+          <span class="text-right font-bold">B5-Z6-127</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="font-bold">Magacaga:</span>
+          <span class="text-right font-bold">Ahmed Mohamed Ali</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Faahfaahinta Biyaha -->
+    <div class="mb-1">
+      <div class="space-y-0 text-xxs">
+        <div class="flex justify-between">
+          <span class="font-bold">Akhri Hore:</span>
+          <span class="font-bold">1,250 m³</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="font-bold">Akhri Dambe:</span>
+          <span class="font-bold">1,345 m³</span>
+        </div>
+        <div class="flex justify-between font-bold">
+          <span>M3:</span>
+          <span>95 m³</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="font-bold">Rate:</span>
+          <span class="font-bold">$0.85</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Xisaabinta Bixinta -->
+    <div class="mb-1">
+      <div class="space-y-0 text-xxs">
+        <div class="flex justify-between font-bold">
+          <span>Lacagta:</span>
+          <span>$80.75</span>
+        </div>
+        <div class="flex justify-between font-bold">
+          <span>Resto Hore:</span>
+          <span>$25.50</span>
+        </div>
+        <div class="flex justify-between font-extrabold border-t border-black pt-1">
+          <span>WADARTA GUUd:</span>
+          <span>$106.25</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Tilmaamaha Bixinta -->
+    <div class="text-center text-micro leading-tight mt-1">
+      <p class="font-bold uppercase mb-0">Habka Lacagta Bixinta</p>
+      <p class="font-bold">*789*607854*LACAGTA#</p>
+      <p class="mt-0">si aad ugu bixiso mobile-kaaga.</p>
+      <p class="font-bold mt-0">Fadlan geli Lambarka Gurigaaga</p>
+      <p class="font-bold">(tusaale: B5-Z6-127)</p>
+      <p>qaybta fariinta ama faahfaahinta.</p>
+      <p class="mt-0 font-bold">Haddii aan lambarka guriga la gelin,</p>
+      <p class="font-bold">lacagta lama xaqiijin karo.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Footer -->
+    <div class="text-center text-xxxs mt-1">
+      <p class="font-bold">Thank you for using Som Water !</p>
+      <p class="font-bold">Powered by Blue ERP Systems</p>
+    </div>
+  </div>
+
+  <!-- Print Button -->
+  <button id="printButton" onclick="window.print()">🖨️ Daabac</button>
+
+  <script>
+    // Show current date & time
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById('currentDate').textContent = now.toLocaleDateString('en-GB');
+      document.getElementById('currentTime').textContent = now.toLocaleTimeString('en-GB', { hour12: false });
+    }
+    updateDateTime();
+  </script>
 </body>
-
 </html>
